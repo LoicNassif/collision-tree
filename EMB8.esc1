@@ -1,0 +1,4 @@
+		EMB8	Embryo collisions
+time		Target Mass	Impactor Mass	M_esc		Hit & Run	theta_imp	theta_HnR	Impact velocity	HnR velocity	escape velocity	M_LR	M_run	E_k_star	E_k	U_G
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+1.018e+07	9.857e+23	8.961e+23	3.266e+21	True		4.820e+01	1.176e+01	6.326e+03	5.427e+03	4.458e+03	1.022e+24	8.562e+23	5.412e+33	9.393e+30	-9.640e+31
