@@ -50,7 +50,7 @@ def load_esc_files(filename):
     return time, EMBmass, IMPmass, M_esc, HnR, theta_imp
 
 def find_collision_mass(filename, t):
-    time, EMBmass, IMPmass, M_esc, HnR, theta_imp = load_esc_files(filename+".esc"+str(1))
+    time, EMBmass, IMPmass, M_esc, HnR, theta_imp = load_esc_files(filename+".esc")
     time_index = 0
     print("time to aim: "+str(t))
     for j in range(len(time)):
@@ -63,21 +63,21 @@ def find_collision_mass(filename, t):
 def compute_real_mass(filename, t, imp):
     real_mass_list = []
 
-    time, EMBmass, IMPmass, M_esc, HnR, theta_imp = load_esc_files(filename+".esc"+str(1))
+    time, EMBmass, IMPmass, M_esc, HnR, theta_imp = load_esc_files(filename+".esc")
 
     time_index = 0
     for j in range(len(time)):
         if t - 5e5 <= time[j] <= t + 5e5:
             time_index = j
 
-    M_LR, M_run, _, __ = gabriel.compute_real_mass(EMBmass[time_index], IMPmass[time_index], filename, imp)
+    M_LR, M_run, _, __, ___ = gabriel.compute_real_mass(EMBmass[time_index], IMPmass[time_index], filename, imp)
 
     return [M_LR[0], M_LR[1]]
 
 def find_init_mass(filename):
     EMBmass_list = []
     for i in range(5):
-        time, EMBmass, a, b, c, d = load_esc_files(filename+".esc"+str(1))
+        time, EMBmass, a, b, c, d = load_esc_files(filename+".esc")
         EMBmass_list.append(EMBmass[0])
 
     return sum(EMBmass_list)/len(EMBmass_list)
@@ -85,7 +85,7 @@ def find_init_mass(filename):
 def find_init_mass_no_collision(filename):
     IMPmass_list = []
     for i in range(5):
-        time, EMBmass, IMPmass, b, c, d = load_esc_files(filename+".esc"+str(1))
+        time, EMBmass, IMPmass, b, c, d = load_esc_files(filename+".esc")
         IMPmass_list.append(IMPmass[0])
 
     return sum(IMPmass_list)/len(IMPmass_list)

@@ -179,4 +179,4 @@ def compute_real_mass(M_targ, M_imp, filename_of_targ, imp): #SI units only pls
     sigma_LR = sqrt(summing_LR/len(M_LR_lst))
     sigma_run = sqrt(summing_run/len(M_run_lst))
 
-    return [mean_LR, sigma_LR], [mean_run, sigma_run], EMBmass, IMPmass
+    return [mean_LR, sigma_LR], [mean_run, sigma_run], EMBmass, IMPmass, HnR

@@ -56,6 +56,7 @@ def compute_real_mass(BST):
                 mass = depth[i][j]._root.value[3][0]
                 print("mass None = "+str(mass is None))
                 depth[i][j]._root.value.append(mass)
+                depth[i][j]._root.value.append("False")
                 continue
             else:
                 M_targ = depth[i][j]._right._root.value[3][0]
@@ -63,7 +64,7 @@ def compute_real_mass(BST):
                 print("\t\t targ = "+ str(depth[i][j]._right._root.value))
                 print("\t\t imp = "+ str(depth[i][j]._left._root.value))
                 print()
-                M_LR, M_run, EMBmass, IMPmass = gabriel.compute_real_mass(M_targ, M_imp,
+                M_LR, M_run, EMBmass, IMPmass, HnR = gabriel.compute_real_mass(M_targ, M_imp,
                                                     depth[i][j]._root.value[0],
                                                     depth[i][j]._root.value[1])
                 print()
@@ -77,5 +78,6 @@ def compute_real_mass(BST):
                 print("MRun = " + str(M_run[0] is None))
                 print("Mtot = " + str(EMBmass + IMPmass is None))
                 depth[i][j]._root.value.append(EMBmass + IMPmass)
+                depth[i][j]._root.value.append(str(HnR))
 
     return depth
